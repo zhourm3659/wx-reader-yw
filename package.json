@@ -9,16 +9,16 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "rm -rf dist && npm version $npm_config_version_type && rollup -c",
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhourm3659/wx-reader-yw.git"
   },
   "author": "zhourm3659",
   "license": "MIT",
-  "scripts": {
-    "build": "rm -rf dist && rollup -c",
-    "test": "jest"
-  },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^23.0.4",
