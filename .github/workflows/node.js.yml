@@ -19,7 +19,10 @@ jobs:
         node-version: '18'
 
     - name: Configure npm to use GitHub Packages
-      run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
+        echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
+        cat ~/.npmrc
 
     - name: Install dependencies
       run: |
