@@ -1,5 +1,5 @@
 {
-    "extends": ["@tencent/eslint-config-tencent", "plugin:prettier/recommended"],
+    "extends": ["@tencent/eslint-config-tencent", "@tencent/eslint-config-tencent/ts", "plugin:prettier/recommended"],
     "plugins": ["prettier"],
     "rules": {
       "prettier/prettier": "error"
