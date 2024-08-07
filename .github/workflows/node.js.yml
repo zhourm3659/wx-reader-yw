@@ -26,10 +26,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+        npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}
         npm install
-      env:
-        NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
 
     - name: Build the package & Publish package
       run: |
