@@ -22,12 +22,13 @@ jobs:
       run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" > ~/.npmrc
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Build the package
-      run: npm run build --version_type=patch
-
-    - name: Publish package
-      run: npm publish
+      run: |
+        npm install
+        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+        NPM_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+
+    - name: Build the package & Publish package
+      run: |
+        npm run build --version_type=patch
+        npm publish
