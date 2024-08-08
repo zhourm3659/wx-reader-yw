@@ -24,6 +24,9 @@ jobs:
         echo "registry=https://registry.npmjs.org/" >> ~/.npmrc
         cat ~/.npmrc
 
+    - name: Debug npm configuration
+      run: npm config list
+
     - name: Install dependencies
       run: |
         npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}
